@@ -2,19 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Review;
+use App\Http\Requests\StoreReviewRequest;
 use App\Models\Eatery;
-use Illuminate\Http\Request;
+use App\Models\Review;
 
 class ReviewController extends Controller
 {
-    public function store(Request $request, Eatery $eatery)
+    public function store(StoreReviewRequest $request, Eatery $eatery)
     {
-        abort(501, 'Review submission will be implemented with Form Requests in Phase 4.');
+        $eatery->reviews()->create($request->validated());
+
+        return redirect()
+            ->route('eateries.show', $eatery)
+            ->with('success', 'Salamat! Review posted.');
     }
 
     public function destroy(Review $review)
     {
-        abort(501, 'Review deletion will be implemented in Phase 4.');
+        $eatery = $review->eatery;
+
+        $review->delete();
+
+        return redirect()
+            ->route('eateries.show', $eatery)
+            ->with('success', 'Review deleted.');
     }
 }
