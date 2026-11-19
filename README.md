@@ -93,7 +93,19 @@ Add a table explaining each model relationship, its type, and why it is appropri
 Paste the output of:
 
 ```bash
-php artisan route:list --except-vendor
+  GET|HEAD        / ...................................................................................... home › HomeController
+  GET|HEAD        districts ......................................................... districts.index › DistrictController@index
+  GET|HEAD        districts/{district} ................................................ districts.show › DistrictController@show
+  GET|HEAD        eateries ............................................................. eateries.index › EateryController@index
+  POST            eateries ............................................................. eateries.store › EateryController@store
+  GET|HEAD        eateries/create .................................................... eateries.create › EateryController@create
+  GET|HEAD        eateries/{eatery} ...................................................... eateries.show › EateryController@show
+  PUT|PATCH       eateries/{eatery} .................................................. eateries.update › EateryController@update
+  DELETE          eateries/{eatery} ................................................ eateries.destroy › EateryController@destroy
+  GET|HEAD        eateries/{eatery}/edit ................................................. eateries.edit › EateryController@edit
+  POST            eateries/{eatery}/reviews .................................... eateries.reviews.store › ReviewController@store
+  GET|HEAD        reviewers/{user} .................................................... reviewers.show › ReviewerController@show
+  DELETE          reviews/{review} .................................................. reviews.destroy › ReviewController@destroy
 ```
 
 ## Screenshots
@@ -101,5 +113,12 @@ php artisan route:list --except-vendor
 Add screenshots of the following pages:
 
 1. Eatery directory
+<img width="1499" height="930" alt="image" src="https://github.com/user-attachments/assets/f2eb7bee-822a-4de5-bd45-44f4b23ca2e1" />
+
 2. Eatery detail page with reviews
+<img width="2558" height="1434" alt="image" src="https://github.com/user-attachments/assets/447c0c7a-bf4d-4834-b7a6-e8a6e467acc4" />
+<img width="2548" height="1370" alt="image" src="https://github.com/user-attachments/assets/cca8ed19-eae5-4a19-99c9-dde8d30ed216" />
+
+
 3. Create eatery form showing validation errors
+<img width="2558" height="1378" alt="image" src="https://github.com/user-attachments/assets/b60a6dfd-ba36-46e8-a35b-575350043936" />
